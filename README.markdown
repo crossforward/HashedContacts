@@ -11,6 +11,8 @@ These two steps do much to establish user trust with how you treat their data.
 
 Copy the two files `DTSHashedContactsProvider.h` & `DTSHashedContactsProvider.m` into your project from `Source` directory.
 
+Add the `AddressBook.framework` to your project.
+
 __Supports iOS 4.0 and above__
 
 Replace the value of `DTSHashSALT` in `DTSHashedContactsProvider.m` and remove the warning.
