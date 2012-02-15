@@ -34,7 +34,15 @@ A default value for the alert is provided based on the application display name.
 Once that is done simply call the desired retrieval method to get your tokens.
 
 `[hashedContactsProvider emailTokensWithConfirmation:^(NSArray* tokens) {`
+    
 `    //When permission given`
+
 ` } whenDeclined:^{`
+    
 `     //When permission denied`
+
 ` }];`
+
+The result will look like this:
+
+`[@"86ce5e699ceeccd1ba22187e0d19435f006588d2edb15ad4f0becb19cb6f83098899d70454a87b6b50ef0f00ce8728c535f2e762f5db6c0232eae36ff45b1922",@"4b32ad8461eac433582fd1979bf59cb2b970f25d37cf0cf4db0eab20da7a430bff663096aaa8ce4e306e13da0b692784a94c5b30b46fbe4db4e1566cc2de7050"]`
