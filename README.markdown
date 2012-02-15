@@ -13,7 +13,7 @@ Copy the two files `DTSHashedContactsProvider.h` & `DTSHashedContactsProvider.m`
 
 __Supports iOS 4.0 and above__
 
-Replace the value of DTSHashSALT in DTSHashedContactsProvider.m and remove the warning.
+Replace the value of `DTSHashSALT` in `DTSHashedContactsProvider.m` and remove the warning.
 
 ## Usage
 
@@ -29,4 +29,12 @@ You may configure this in three ways:
 
 A default value for the alert is provided based on the application display name.
 
-![](h)
+![](https://github.com/crossforward/HashedContacts/raw/master/alert_example.png)
+
+Once that is done simply call the desired retrieval method to get your tokens.
+
+`[hashedContactsProvider emailTokensWithConfirmation:^(NSArray* tokens) {
+    //When permission given
+ } whenDeclined:^{
+     //When permission denied
+ }];`
