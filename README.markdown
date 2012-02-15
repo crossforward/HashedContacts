@@ -39,6 +39,6 @@ Once that is done simply call the desired retrieval method to get your tokens.
     //When permission denied
     }];
 
-The result will look like this:
+The result provided in `tokens` will look like this:
 
-`[@"86ce5e699ceeccd1ba22187e0d19435f006588d2edb15ad4f0becb19cb6f83098899d70454a87b6b50ef0f00ce8728c535f2e762f5db6c0232eae36ff45b1922",@"4b32ad8461eac433582fd1979bf59cb2b970f25d37cf0cf4db0eab20da7a430bff663096aaa8ce4e306e13da0b692784a94c5b30b46fbe4db4e1566cc2de7050"]`
+`[@"eca7cf4a5981108abb6e2b9754c96b62e6c241db",@"a927a7e701521fd46b89db0162a05c1159cbd2aa"]`
