@@ -10,51 +10,45 @@
 
 @implementation DTSViewController
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+@synthesize allTokensView, hashedContactsProvider;
+
+-(void)viewDidLoad {
+    self.hashedContactsProvider = [[DTSHashedContactsProvider alloc] init];
+    self.hashedContactsProvider.hashingMethod = DTSHashWithSHA512;
 }
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+-(IBAction)requestEmailTokens:(id)sender {
+    [self.hashedContactsProvider
+     emailTokensWithConfirmation:^(NSArray* tokens) {
+         
+         if([tokens count] > 0) {
+             allTokensView.text = [tokens componentsJoinedByString:@"\n\n"];
+         } else {
+             allTokensView.text = @"No Contacts";
+         }
+         
+     } whenDeclined:^{
+         allTokensView.text = @"Declined";
+     }];
+}
+-(IBAction)requestPhoneNumberTokens:(id)sender {
+    [self.hashedContactsProvider
+     phoneNumberTokensWithConfirmation:^(NSArray* tokens) {
+         
+         if([tokens count] > 0) {
+             allTokensView.text = [tokens componentsJoinedByString:@"\n\n"];
+         } else {
+             allTokensView.text = @"No Contacts";
+         }
+         
+     } whenDeclined:^{
+         allTokensView.text = @"Declined";
+     }];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+-(IBAction)resetConfirmation:(id)sender {
+    [self.hashedContactsProvider resetConfirmationAlerts];
 }
 
 @end
