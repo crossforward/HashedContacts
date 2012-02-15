@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2E8475214EC008600DADB76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475114EC008600DADB76 /* UIKit.framework */; };
+		E2E8475414EC008600DADB76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475314EC008600DADB76 /* Foundation.framework */; };
+		E2E8475614EC008600DADB76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475514EC008600DADB76 /* CoreGraphics.framework */; };
+		E2E8475C14EC008600DADB76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E2E8475A14EC008600DADB76 /* InfoPlist.strings */; };
+		E2E8475E14EC008600DADB76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8475D14EC008600DADB76 /* main.m */; };
+		E2E8476214EC008600DADB76 /* DTSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8476114EC008600DADB76 /* DTSAppDelegate.m */; };
+		E2E8476514EC008600DADB76 /* DTSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8476414EC008600DADB76 /* DTSViewController.m */; };
+		E2E8476814EC008600DADB76 /* DTSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E8476614EC008600DADB76 /* DTSViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E2E8474D14EC008600DADB76 /* DTSHashedContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTSHashedContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E8475114EC008600DADB76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E2E8475314EC008600DADB76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E2E8475514EC008600DADB76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E2E8475914EC008600DADB76 /* DTSHashedContacts-Info.plist */ = {isa = PBXFileReference; path = "DTSHashedContacts-Info.plist"; sourceTree = "<group>"; };
+		E2E8475B14EC008600DADB76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E2E8475D14EC008600DADB76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2E8475F14EC008600DADB76 /* DTSHashedContacts-Prefix.pch */ = {isa = PBXFileReference; path = "DTSHashedContacts-Prefix.pch"; sourceTree = "<group>"; };
+		E2E8476014EC008600DADB76 /* DTSAppDelegate.h */ = {isa = PBXFileReference; path = DTSAppDelegate.h; sourceTree = "<group>"; };
+		E2E8476114EC008600DADB76 /* DTSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSAppDelegate.m; sourceTree = "<group>"; };
+		E2E8476314EC008600DADB76 /* DTSViewController.h */ = {isa = PBXFileReference; path = DTSViewController.h; sourceTree = "<group>"; };
+		E2E8476414EC008600DADB76 /* DTSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSViewController.m; sourceTree = "<group>"; };
+		E2E8476714EC008600DADB76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DTSViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2E8474A14EC008600DADB76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E8475214EC008600DADB76 /* UIKit.framework in Frameworks */,
+				E2E8475414EC008600DADB76 /* Foundation.framework in Frameworks */,
+				E2E8475614EC008600DADB76 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2E8474214EC008600DADB76 = {
+			isa = PBXGroup;
+			children = (
+				E2E8475714EC008600DADB76 /* DTSHashedContacts */,
+				E2E8475014EC008600DADB76 /* Frameworks */,
+				E2E8474E14EC008600DADB76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2E8474E14EC008600DADB76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2E8474D14EC008600DADB76 /* DTSHashedContacts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2E8475014EC008600DADB76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2E8475114EC008600DADB76 /* UIKit.framework */,
+				E2E8475314EC008600DADB76 /* Foundation.framework */,
+				E2E8475514EC008600DADB76 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2E8475714EC008600DADB76 /* DTSHashedContacts */ = {
+			isa = PBXGroup;
+			children = (
+				E2E8476014EC008600DADB76 /* DTSAppDelegate.h */,
+				E2E8476114EC008600DADB76 /* DTSAppDelegate.m */,
+				E2E8476314EC008600DADB76 /* DTSViewController.h */,
+				E2E8476414EC008600DADB76 /* DTSViewController.m */,
+				E2E8476614EC008600DADB76 /* DTSViewController.xib */,
+				E2E8475814EC008600DADB76 /* Supporting Files */,
+			);
+			path = DTSHashedContacts;
+			sourceTree = "<group>";
+		};
+		E2E8475814EC008600DADB76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2E8475914EC008600DADB76 /* DTSHashedContacts-Info.plist */,
+				E2E8475A14EC008600DADB76 /* InfoPlist.strings */,
+				E2E8475D14EC008600DADB76 /* main.m */,
+				E2E8475F14EC008600DADB76 /* DTSHashedContacts-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2E8474C14EC008600DADB76 /* DTSHashedContacts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E8476B14EC008600DADB76 /* Build configuration list for PBXNativeTarget "DTSHashedContacts" */;
+			buildPhases = (
+				E2E8474914EC008600DADB76 /* Sources */,
+				E2E8474A14EC008600DADB76 /* Frameworks */,
+				E2E8474B14EC008600DADB76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DTSHashedContacts;
+			productName = DTSHashedContacts;
+			productReference = E2E8474D14EC008600DADB76 /* DTSHashedContacts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2E8474414EC008600DADB76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Cross Forward Consulting, LLC";
+			};
+			buildConfigurationList = E2E8474714EC008600DADB76 /* Build configuration list for PBXProject "DTSHashedContacts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E2E8474214EC008600DADB76;
+			productRefGroup = E2E8474E14EC008600DADB76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2E8474C14EC008600DADB76 /* DTSHashedContacts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2E8474B14EC008600DADB76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E8475C14EC008600DADB76 /* InfoPlist.strings in Resources */,
+				E2E8476814EC008600DADB76 /* DTSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2E8474914EC008600DADB76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E8475E14EC008600DADB76 /* main.m in Sources */,
+				E2E8476214EC008600DADB76 /* DTSAppDelegate.m in Sources */,
+				E2E8476514EC008600DADB76 /* DTSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E2E8475A14EC008600DADB76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2E8475B14EC008600DADB76 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E2E8476614EC008600DADB76 /* DTSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2E8476714EC008600DADB76 /* en */,
+			);
+			name = DTSViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2E8476914EC008600DADB76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E2E8476A14EC008600DADB76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2E8476C14EC008600DADB76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DTSHashedContacts/DTSHashedContacts-Prefix.pch";
+				INFOPLIST_FILE = "DTSHashedContacts/DTSHashedContacts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E2E8476D14EC008600DADB76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DTSHashedContacts/DTSHashedContacts-Prefix.pch";
+				INFOPLIST_FILE = "DTSHashedContacts/DTSHashedContacts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2E8474714EC008600DADB76 /* Build configuration list for PBXProject "DTSHashedContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E8476914EC008600DADB76 /* Debug */,
+				E2E8476A14EC008600DADB76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E8476B14EC008600DADB76 /* Build configuration list for PBXNativeTarget "DTSHashedContacts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E8476C14EC008600DADB76 /* Debug */,
+				E2E8476D14EC008600DADB76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2E8474414EC008600DADB76 /* Project object */;
+}
