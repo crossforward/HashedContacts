@@ -22,9 +22,6 @@ typedef enum _DTSFieldToReturn {
 
 @interface DTSHashedContactsProvider ()
 
-@property (strong) NSString* alertTitle;
-@property (strong) NSString* alertMessage;
-
 @property (copy) DTSConfirmationBlock confirmationBlock;
 @property (copy) DTSDeclinedBlock declinedBlock;
 @property DTSFieldToReturn contactFieldToReturn;
@@ -138,12 +135,6 @@ typedef enum _DTSFieldToReturn {
 
 }
 #pragma Mark Permission Confirmation
--(void)setConfirmationAlertTitle:(NSString*)title {
-    self.alertTitle = title; 
-}
--(void)setConfirmationAlertMessage:(NSString*)message {
-    self.alertMessage = message;
-}
 
 -(void)resetConfirmationAlerts {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

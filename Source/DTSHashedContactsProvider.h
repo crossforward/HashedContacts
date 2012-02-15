@@ -27,12 +27,12 @@ typedef enum _DTSHashMethod {
 -(NSString*)tokenForString:(NSString*)string;
 
 //The user will be prompted to give permission before access to addressbook is granted
--(void)setConfirmationAlertTitle:(NSString*)title;
--(void)setConfirmationAlertMessage:(NSString*)message;
 -(BOOL)userHasGivenPermission;
 -(void)resetConfirmationAlerts;
 
 //Choose an option from DTSHashMethod to use for hashing
 @property DTSHashMethod hashingMethod;
+@property (strong) NSString* alertTitle;
+@property (strong) NSString* alertMessage;
 
 @end
