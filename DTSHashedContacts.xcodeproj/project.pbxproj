@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5DBE11614EFB2570044E440 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5DBE11814EFB2570044E440 /* Localizable.strings */; };
 		E2E8475214EC008600DADB76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475114EC008600DADB76 /* UIKit.framework */; };
 		E2E8475414EC008600DADB76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475314EC008600DADB76 /* Foundation.framework */; };
 		E2E8475614EC008600DADB76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E8475514EC008600DADB76 /* CoreGraphics.framework */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5DBE11714EFB2570044E440 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B5DBE11914EFB25D0044E440 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2E8474D14EC008600DADB76 /* DTSHashedContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTSHashedContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E8475114EC008600DADB76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E2E8475314EC008600DADB76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +114,7 @@
 			children = (
 				E2E8476F14EC011B00DADB76 /* DTSHashedContactsProvider.h */,
 				E2E8477014EC011B00DADB76 /* DTSHashedContactsProvider.m */,
+				B5DBE11814EFB2570044E440 /* Localizable.strings */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -150,6 +154,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = E2E8474214EC008600DADB76;
 			productRefGroup = E2E8474E14EC008600DADB76 /* Products */;
@@ -168,6 +173,7 @@
 			files = (
 				E2E8475C14EC008600DADB76 /* InfoPlist.strings in Resources */,
 				E2E8476814EC008600DADB76 /* DTSViewController.xib in Resources */,
+				B5DBE11614EFB2570044E440 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +194,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B5DBE11814EFB2570044E440 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5DBE11714EFB2570044E440 /* en */,
+				B5DBE11914EFB25D0044E440 /* de */,
+			);
+			name = Localizable.strings;
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
 		E2E8475A14EC008600DADB76 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,6 +311,7 @@
 				E2E8476D14EC008600DADB76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
