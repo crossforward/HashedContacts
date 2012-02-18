@@ -39,9 +39,9 @@ typedef enum _DTSFieldToReturn {
         self.hashingMethod = DTSHashWithSHA1;
         
         //Default Messaging
-        self.alertTitle = @"Allow Access to Contacts?";
+        self.alertTitle = NSLocalizedString(@"Allow Access to Contacts?", @"Alert title");
         NSString *appname = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
-        self.alertMessage = [NSString stringWithFormat:@"%@ would like access to your contact information.", appname];
+        self.alertMessage = [NSString stringWithFormat:NSLocalizedString(@"%@ would like access to your contact information.", @"Alert message"), appname];
 
     }
     return self;
@@ -152,8 +152,8 @@ typedef enum _DTSFieldToReturn {
                           initWithTitle:self.alertTitle
                           message:self.alertMessage
                           delegate:self
-                          cancelButtonTitle:@"Don’t Allow" 
-                          otherButtonTitles:@"Allow", nil];
+                          cancelButtonTitle:NSLocalizedString(@"Don’t Allow", @"Cancel button title") 
+                          otherButtonTitles:NSLocalizedString(@"Allow", @"Allow button title"), nil];
     [alert show];
 }
 
