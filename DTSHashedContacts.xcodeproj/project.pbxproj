@@ -21,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E9FA65C14F01A800004D02C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B5DBE11714EFB2570044E440 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B5DBE11914EFB25D0044E440 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2E8474D14EC008600DADB76 /* DTSHashedContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTSHashedContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +156,7 @@
 			knownRegions = (
 				en,
 				de,
+				nl,
 			);
 			mainGroup = E2E8474214EC008600DADB76;
 			productRefGroup = E2E8474E14EC008600DADB76 /* Products */;
@@ -199,6 +201,7 @@
 			children = (
 				B5DBE11714EFB2570044E440 /* en */,
 				B5DBE11914EFB25D0044E440 /* de */,
+				3E9FA65C14F01A800004D02C /* nl */,
 			);
 			name = Localizable.strings;
 			path = Source;
