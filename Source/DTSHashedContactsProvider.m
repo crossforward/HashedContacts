@@ -81,6 +81,12 @@ typedef enum _DTSFieldToReturn {
     }
 }
 
+-(NSString*)cleanNumber:(NSString*)number
+{	
+    NSCharacterSet *numbers = [[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"] invertedSet];
+	return [[number componentsSeparatedByCharactersInSet:numbers] componentsJoinedByString:@""];
+}
+
 -(void)getTokens {
     //Retrieve entries on background thread so that we don't block the main one
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{    
@@ -107,6 +113,11 @@ typedef enum _DTSFieldToReturn {
             CFArrayRef entries = ABMultiValueCopyArrayOfAllValues(contactRef);
             for( int j = 0; j < numberOfEntries; ++j ) {
                 NSString* email = (__bridge NSString *)CFArrayGetValueAtIndex(entries, j);
+                
+                if(self.contactFieldToReturn == DTSPhoneNumberField) {
+                    email = [self cleanNumber:email];
+                }
+                
                 NSString* hashed = [self tokenForString:email];
                 [tokens addObject:hashed];
             };
