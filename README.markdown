@@ -9,7 +9,7 @@ These two steps do much to establish user trust with how you treat their data.
 
 ## Installation
 
-Copy the two files `DTSHashedContactsProvider.h` & `DTSHashedContactsProvider.m` into your project from `Source` directory.
+Copy the contents of the `Source` directory into your project.  This will include the two main files `DTSHashedContactsProvider.m` and `DTSHashedContactsProvider.h` in addition to the localization files.
 
 Add the `AddressBook.framework` to your project.
 
