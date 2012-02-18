@@ -87,6 +87,25 @@ typedef enum _DTSFieldToReturn {
 	return [[number componentsSeparatedByCharactersInSet:numbers] componentsJoinedByString:@""];
 }
 
+-(NSString*)cleanEmail:(NSString*)email
+{
+    // This cleans email+additional@provider.com to be email@provider.com
+    // which is another problematic scenario..
+    
+    NSRange plusRange = [email rangeOfString:@"+"];
+    if(plusRange.length > 0)
+    {
+        // found
+        NSRange atRange = [email rangeOfString:@"@"];
+        
+        NSString * start    = [email substringToIndex:plusRange.location];
+        NSString * rest     = [email substringFromIndex:atRange.location];
+        email = [start stringByAppendingString:rest];
+    }
+    
+    return email;
+}
+
 -(void)getTokens {
     //Retrieve entries on background thread so that we don't block the main one
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{    
@@ -114,7 +133,9 @@ typedef enum _DTSFieldToReturn {
             for( int j = 0; j < numberOfEntries; ++j ) {
                 NSString* email = (__bridge NSString *)CFArrayGetValueAtIndex(entries, j);
                 
-                if(self.contactFieldToReturn == DTSPhoneNumberField) {
+                if(self.contactFieldToReturn == DTSEmailField) {
+                    email = [self cleanEmail:email];
+                } else if(self.contactFieldToReturn == DTSPhoneNumberField) {
                     email = [self cleanNumber:email];
                 }
                 
