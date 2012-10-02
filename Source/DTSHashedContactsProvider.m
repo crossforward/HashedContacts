@@ -85,7 +85,7 @@ typedef enum _DTSFieldToReturn {
 
 -(NSString*)tokenForString:(NSString*)string {
     //The concatenation of the application hash given in DTSHashSALT and the given string is used for hashing.
-    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", DTSHashSALT, string];
+    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", DTSHashSALT, [string lowercaseString]];
     NSString* token = nil;
     
     switch (self.hashingMethod) {
