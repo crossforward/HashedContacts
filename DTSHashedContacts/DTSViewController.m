@@ -14,6 +14,8 @@
 
 -(void)viewDidLoad {
     self.hashedContactsProvider = [[DTSHashedContactsProvider alloc] init];
+#warning Don't forget to set a hashSalt to something specific to your application!
+//    self.hashedContactsProvider.hashSalt = @"CHANGE ME PLEASE";
     self.hashedContactsProvider.hashingMethod = DTSHashWithSHA512;
 }
 

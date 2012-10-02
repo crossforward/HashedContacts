@@ -10,9 +10,6 @@
 #import <AddressBook/AddressBook.h>
 #import <CommonCrypto/CommonDigest.h>
 
-#warning Update the value of DTSHashSALT to something specific to your application
-#define DTSHashSALT @"CHANGE ME PLEASE"
-
 #define DTSHashedContactsHasGivenPermission @"DTSHashedContactsHasGivenPermission"
 
 typedef enum _DTSFieldToReturn {
@@ -30,7 +27,7 @@ typedef enum _DTSFieldToReturn {
 
 @implementation DTSHashedContactsProvider
 
-@synthesize confirmationBlock, declinedBlock, hashingMethod, contactFieldToReturn, alertTitle, alertMessage;
+@synthesize confirmationBlock, declinedBlock, hashingMethod, hashSalt, contactFieldToReturn, alertTitle, alertMessage;
 
 - (id)init {
     self = [super init];
@@ -85,7 +82,8 @@ typedef enum _DTSFieldToReturn {
 
 -(NSString*)tokenForString:(NSString*)string {
     //The concatenation of the application hash given in DTSHashSALT and the given string is used for hashing.
-    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", DTSHashSALT, [string lowercaseString]];
+    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", (self.hashSalt ? self.hashSalt : @""), [string lowercaseString]];
+    NSLog(@"stringToHash: %@", stringToHash);
     NSString* token = nil;
     
     switch (self.hashingMethod) {

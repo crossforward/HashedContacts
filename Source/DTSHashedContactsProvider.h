@@ -33,6 +33,7 @@ typedef enum _DTSHashMethod {
 
 //Choose an option from DTSHashMethod to use for hashing
 @property DTSHashMethod hashingMethod;
+@property (strong) NSString* hashSalt;
 @property (strong) NSString* alertTitle;
 @property (strong) NSString* alertMessage;
 
