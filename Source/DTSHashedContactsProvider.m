@@ -185,6 +185,9 @@ typedef enum _DTSFieldToReturn {
             self.declinedBlock = nil;
         });
         
+        if(addressBook) {
+            CFRelease(addressBook);
+        }
     });
     
 }
