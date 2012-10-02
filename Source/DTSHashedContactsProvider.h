@@ -12,8 +12,9 @@ typedef void (^DTSConfirmationBlock)(NSArray* tokens);
 typedef void (^DTSDeclinedBlock)(void);
 
 typedef enum _DTSHashMethod {
-	DTSHashWithSHA1 = 0,
-	DTSHashWithSHA512 = 1,
+    DTSHashWithSHA1 = 0,
+    DTSHashWithSHA256 = 1,
+    DTSHashWithSHA512 = 2,
 } DTSHashMethod;
 
 
