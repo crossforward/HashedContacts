@@ -10,14 +10,11 @@
 #import <AddressBook/AddressBook.h>
 #import <CommonCrypto/CommonDigest.h>
 
-#warning Update the value of DTSHashSALT to something specific to your application
-#define DTSHashSALT @"CHANGE ME PLEASE"
-
 #define DTSHashedContactsHasGivenPermission @"DTSHashedContactsHasGivenPermission"
 
 typedef enum _DTSFieldToReturn {
-	DTSEmailField = 0,
-	DTSPhoneNumberField = 1,
+    DTSEmailField = 0,
+    DTSPhoneNumberField = 1,
 } DTSFieldToReturn;
 
 @interface DTSHashedContactsProvider ()
@@ -30,7 +27,7 @@ typedef enum _DTSFieldToReturn {
 
 @implementation DTSHashedContactsProvider
 
-@synthesize confirmationBlock, declinedBlock, hashingMethod, contactFieldToReturn, alertTitle, alertMessage;
+@synthesize confirmationBlock, declinedBlock, hashingMethod, hashSalt, contactFieldToReturn, alertTitle, alertMessage;
 
 - (id)init {
     self = [super init];
@@ -42,7 +39,7 @@ typedef enum _DTSFieldToReturn {
         self.alertTitle = NSLocalizedString(@"Allow Access to Contacts?", @"Alert title");
         NSString *appname = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
         self.alertMessage = [NSString stringWithFormat:NSLocalizedString(@"%@ would like access to your contact information.", @"Alert message"), appname];
-
+        
     }
     return self;
 }
@@ -55,6 +52,18 @@ typedef enum _DTSFieldToReturn {
     CC_SHA512(data.bytes, data.length, digest);
     NSMutableString* output = [NSMutableString  stringWithCapacity:CC_SHA512_DIGEST_LENGTH * 2];
     for(int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return output;
+}
+
+-(NSString *)createSHA256:(NSString *)string
+{
+    const char *cstr = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:string.length];
+    uint8_t digest[CC_SHA256_DIGEST_LENGTH];
+    CC_SHA256(data.bytes, data.length, digest);
+    NSMutableString* output = [NSMutableString  stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++)
         [output appendFormat:@"%02x", digest[i]];
     return output;
 }
@@ -73,18 +82,29 @@ typedef enum _DTSFieldToReturn {
 
 -(NSString*)tokenForString:(NSString*)string {
     //The concatenation of the application hash given in DTSHashSALT and the given string is used for hashing.
-    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", DTSHashSALT, string];
-    if(self.hashingMethod == DTSHashWithSHA1) {
-        return [self createSHA1:stringToHash];
-    } else {
-        return [self createSHA512:stringToHash];
+    NSString* stringToHash = [NSString stringWithFormat:@"%@%@", (self.hashSalt ? self.hashSalt : @""), [string lowercaseString]];
+    NSLog(@"stringToHash: %@", stringToHash);
+    NSString* token = nil;
+    
+    switch (self.hashingMethod) {
+        case DTSHashWithSHA1:
+            token = [self createSHA1:stringToHash];
+            break;
+        case DTSHashWithSHA256:
+            token = [self createSHA256:stringToHash];
+            break;
+        case DTSHashWithSHA512:
+            token = [self createSHA512:stringToHash];
+            break;
     }
+    
+    return token;
 }
 
 -(NSString*)cleanNumber:(NSString*)number
-{	
+{
     NSCharacterSet *numbers = [[NSCharacterSet characterSetWithCharactersInString:@"+0123456789"] invertedSet];
-	return [[number componentsSeparatedByCharactersInSet:numbers] componentsJoinedByString:@""];
+    return [[number componentsSeparatedByCharactersInSet:numbers] componentsJoinedByString:@""];
 }
 
 -(NSString*)cleanEmail:(NSString*)email
@@ -108,7 +128,7 @@ typedef enum _DTSFieldToReturn {
 
 -(void)getTokens {
     //Retrieve entries on background thread so that we don't block the main one
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSMutableArray* tokens = [NSMutableArray array];
         
         ABAddressBookRef addressBook = ABAddressBookCreate();
@@ -119,7 +139,7 @@ typedef enum _DTSFieldToReturn {
             
             ABRecordRef ref = CFArrayGetValueAtIndex(contacts,i);
             ABMultiValueRef contactRef;
-
+            
             if(self.contactFieldToReturn == DTSEmailField) {
                 contactRef = ABRecordCopyValue(ref, kABPersonEmailProperty);
             } else if(self.contactFieldToReturn == DTSPhoneNumberField) {
@@ -162,9 +182,12 @@ typedef enum _DTSFieldToReturn {
             self.confirmationBlock = nil;
             self.declinedBlock = nil;
         });
-
+        
+        if(addressBook) {
+            CFRelease(addressBook);
+        }
     });
-
+    
 }
 #pragma Mark Permission Confirmation
 
@@ -180,11 +203,11 @@ typedef enum _DTSFieldToReturn {
 }
 
 -(void)askForPermission {
-    UIAlertView* alert = [[UIAlertView alloc] 
+    UIAlertView* alert = [[UIAlertView alloc]
                           initWithTitle:self.alertTitle
                           message:self.alertMessage
                           delegate:self
-                          cancelButtonTitle:NSLocalizedString(@"Don’t Allow", @"Cancel button title") 
+                          cancelButtonTitle:NSLocalizedString(@"Don’t Allow", @"Cancel button title")
                           otherButtonTitles:NSLocalizedString(@"Allow", @"Allow button title"), nil];
     [alert show];
 }
@@ -199,7 +222,7 @@ typedef enum _DTSFieldToReturn {
         [defaults setBool:NO forKey:DTSHashedContactsHasGivenPermission];
     }
     [defaults synchronize];
-
+    
     
     if ([self userHasGivenPermission]) {
         [self getTokens];

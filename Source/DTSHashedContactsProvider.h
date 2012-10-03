@@ -12,8 +12,9 @@ typedef void (^DTSConfirmationBlock)(NSArray* tokens);
 typedef void (^DTSDeclinedBlock)(void);
 
 typedef enum _DTSHashMethod {
-	DTSHashWithSHA1 = 0,
-	DTSHashWithSHA512 = 1,
+    DTSHashWithSHA1 = 0,
+    DTSHashWithSHA256 = 1,
+    DTSHashWithSHA512 = 2,
 } DTSHashMethod;
 
 
@@ -32,6 +33,7 @@ typedef enum _DTSHashMethod {
 
 //Choose an option from DTSHashMethod to use for hashing
 @property DTSHashMethod hashingMethod;
+@property (strong) NSString* hashSalt;
 @property (strong) NSString* alertTitle;
 @property (strong) NSString* alertMessage;
 
